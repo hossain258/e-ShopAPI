@@ -13,7 +13,7 @@ class Category(models.Model):
         return self.name
 
 class SubCategory(models.Model):
-    Subcatagory=models.ForeignKey(Category, on_delete=models.CASCADE)
+    Subcatagory=models.ForeignKey(Category, on_delete=models.CASCADE,related_name='sub_cats')
     name=models.CharField(max_length=20)
     category_img=models.ImageField(upload_to="shop/image/Subcategory/")
 
@@ -21,13 +21,23 @@ class SubCategory(models.Model):
         return self.name
 
 
-class Product(models.Model):
+class Product(models.Model):    
+    PIECE = 'Piece'
+    PACKET = 'Packet'
+    BOX = 'BOX'
+    UNIT_TYPES = [
+        (PIECE,PIECE),
+        (PACKET,PACKET),
+        (BOX,BOX),
+    ]
     catagory=models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='Product_catagory')
     sub_category=models.ForeignKey(SubCategory, on_delete=models.CASCADE, null=True, blank=True)
     name=models.CharField(max_length=80, null=True)
     slug=models.SlugField(max_length=80, unique=True)
     description=models.TextField()
     Product_img=models.ImageField(upload_to='shop/images/Product/')
+    product_unit = models.CharField(max_length=10,verbose_name="Product Unit Type",
+    choices=UNIT_TYPES)
     old_price=models.DecimalField(max_digits=7,decimal_places=2)
     new_price=models.DecimalField(max_digits=7, decimal_places=2)
     is_active=models.BooleanField(default=True)
