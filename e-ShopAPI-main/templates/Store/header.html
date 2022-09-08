@@ -25,8 +25,8 @@
                                 <div class="setting ht-setting">
                                     <ul class="ht-setting-list">
 
-                                        {% if user.id is not None %}
-                                        <li><a href="login-register.html">Hello {{ request.user.username}}</a></li>
+                                        {% if user.is_authenticated  %}
+                                        <li><a href="login-register.html">Hello {{ user.username}}</a></li>
                                         <li><a href="#">Logout</a></li>
                                         <li><a href="checkout.html">Checkout</a></li>
                                         {% else %}
