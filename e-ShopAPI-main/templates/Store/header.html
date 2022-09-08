@@ -27,11 +27,11 @@
 
                                         {% if user.id is not None %}
                                         <li><a href="login-register.html">Hello {{ request.user.username}}</a></li>
-                                        <li><a href="#">Logout</a></li>
+                                        <li><a href="/logout">Logout</a></li>
                                         <li><a href="checkout.html">Checkout</a></li>
                                         {% else %}
                                      
-                                        <li><a href="login-register.html">SignIn/SignUp</a></li>
+                                        <li><a href="/login">SignIn/SignUp</a></li>
                                         {% endif %}
                                     </ul>
                                 </div>
