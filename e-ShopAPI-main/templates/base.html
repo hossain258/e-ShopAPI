@@ -55,9 +55,14 @@
 	<![endif]-->
     <!-- Begin Body Wrapper -->
     <div class="body-wrapper">
+
+
+
         <!-- Begin Header Area -->
-        <header>
-            <!-- Begin Header Top Area -->
+
+         {% include 'Store/header.html' %} 
+
+            {% comment %} <!-- Begin Header Top Area -->
             <div class="header-top">
                 <div class="container">
                     <div class="row">
@@ -119,8 +124,9 @@
                         <!-- Header Top Right Area End Here -->
                     </div>
                 </div>
-            </div>
+            </div> {% endcomment %} 
             <!-- Header Top Area End Here -->
+
             <!-- Begin Header Middle Area -->
             <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
                 <div class="container">
@@ -130,7 +136,7 @@
                             <div class="logo pb-sm-30 pb-xs-30">
                                 <a href="index.html">
 
-                                    <h3 style='color:red;'>Test Eommerce</h3>
+                                    <h3 style='color:red;'>Test E-Commerce</h3>
                                 </a>
                             </div>
                         </div>
@@ -511,9 +517,14 @@
                                                 <a href="shop-left-sidebar.html">{{category.name}}'s Sub Category</a>
                                                 <ul>
                                                     <!-- Must be write small letter your subcategory's model name -->
-                                                    {% for subcategory in category.subcategory_set.all %}
+                                                    {% comment %} {% for subcategory in category.subcategory_set.all %}
                                                         <li><a href="#">{{subcategory.name}}</a></li>
-                                                    {% endfor %}
+                                                    {% endfor %} {% endcomment %}
+
+                                                    {% for subcategory in category.sub_cats.all %}
+                                                        <li><a href="#">{{subcategory}}</a></li>
+                                                    {% endfor %} 
+                                                    
                                                 </ul>
                                             </li>
                                         </ul>
