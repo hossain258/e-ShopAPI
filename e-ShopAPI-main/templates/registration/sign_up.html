@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Sign up {% endblock title %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+<form method="post">
+    {% csrf_token %}
+
+    <!-- django default login form start -->
+    {{ form|crispy}}
+    <!-- django default login form end -->
+
+    <p>Have an account? Create one <a href="/login">Here</a></p>
+    <button type="submit" class="btn btn-success">Register</button>
+</form>
+
+{% endblock body %}
