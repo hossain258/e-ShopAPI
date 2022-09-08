@@ -7,6 +7,7 @@ from App_store.views import Home, ProductDetails
 app_name="App_store"
 urlpatterns = [
     path('', Home, name ='home' ),
+    path('home', Home, name ='home' ),
     path('Product-Details/<str:slug>/', ProductDetails, name ='Product_Details' ),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
