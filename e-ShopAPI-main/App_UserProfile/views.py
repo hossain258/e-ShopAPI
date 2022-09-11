@@ -20,7 +20,7 @@ def sign_up(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             
-            # extend  code here 
+           
 
             
             
@@ -32,10 +32,10 @@ def sign_up(request):
             
 
             #Check email already exits or not
-            exist_email = UserProfile.objects.filter(email=request.POST.email).first()
-            if(exist_email):
-                messages.success(request, 'opps 😛! Your email already Exits!.')
-                return render(request, 'registration/sign_up.html')
+            # exist_email = UserProfile.objects.filter(email=request.POST.email).first()
+            # if(exist_email):
+            #     messages.success(request, 'opps 😛! Your email already Exits!.')
+            #     return render(request, 'registration/sign_up.html')
             user = form.save()
 
         #     # Check phone number already exits or not
@@ -45,7 +45,7 @@ def sign_up(request):
         #         return render(request, 'registration/sign_up.html')
             
             login(request, user)
-            messages.success(request,'Registarion submission successful')
+            messages.success(request,'Registation submission successfully completed!!')
             return redirect('login')
         # except Exception as e:
         #     messages.success(request, e)
@@ -55,5 +55,8 @@ def sign_up(request):
      
     else:
         form = RegisterForm()
-    return render(request, 'registration/sign_up.html', {'form':form})
+        diction ={
+            'form':form,
+            }
+    return render(request, 'registration/sign_up.html', context=diction)
 
