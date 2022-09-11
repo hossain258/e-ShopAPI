@@ -24,15 +24,11 @@
                                 <div class="ht-setting-trigger"><span>Setting</span></div>
                                 <div class="setting ht-setting">
                                     <ul class="ht-setting-list">
-
-
                                         {% if user.is_authenticated  %}
                                         <li><a href="login-register.html">Hello {{ user.username}}</a></li>
                                         <li><a href="/logout">Logout</a></li>
                                         <li><a href="checkout.html">Checkout</a></li>
-                                        
                                         {% else %}
-                                     
                                         <li><a href="/login">SignIn/SignUp</a></li>
                                         {% endif %}
                                     </ul>
