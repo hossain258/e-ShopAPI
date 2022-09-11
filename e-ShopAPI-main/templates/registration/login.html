@@ -6,6 +6,34 @@
 
 {% block body %}
 
+{% if messages %}
+{% comment %} 
+    {% for message in messages %}
+        <li class="alert alert-success" role="alert">
+                {{ message }}
+        </li>
+    {% endfor %} {% endcomment %}
+
+    <ul class="messages">
+    {% for message in messages %}
+    <li class="alert alert-success" role="alert" {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+    </ul> 
+{% endif %}
+
+{% comment %} {% for msg in messages %}
+        <div class="alert alert-success" role="alert">
+                {{ msg }}
+        </div>
+        {% endfor %} {% endcomment %}
+
+
+<br>
+
+
+
+<div>
+
 <form method="post">
     {% csrf_token %}
 
@@ -13,8 +41,9 @@
     {{ form|crispy}}
     <!-- django default login form end -->
 
-    <p>Don't have an account? Create one <a href="/user/sign-up">Here</a></p>
+    <p>Don't have an account?  <a href="/user/sign-up"><span style='color:red;'>Create Here!!</span></a></p>
     <button type="submit" class="btn btn-success">Login</button>
 </form>
+</div>
 
 {% endblock body %}

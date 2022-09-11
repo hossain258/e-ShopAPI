@@ -141,6 +141,21 @@
                             </div>
                         </div>
                         <!-- Header Logo Area End Here -->
+
+
+                    {% if messages %}
+                        <ul class="messages">
+                        {% for message in messages %}
+                        <li class="alert alert-success" role="alert" {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+
+
+
+
+
                         <!-- Begin Header Middle Right Area -->
                         <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                             <!-- Begin Header Middle Searchbox Area -->
@@ -302,7 +317,7 @@
                             <div class="hb-menu hb-menu-2 d-xl-block">
                                 <nav>
                                     <ul>
-                                        <li class="dropdown-holder"><a href="index.html">Home</a>
+                                        <li class="dropdown-holder"><a href="/home">Home</a>
                                             <ul class="hb-dropdown">
                                                 <li><a href="index.html">Home One</a></li>
                                                 <li class="active"><a href="index-2.html">Home Two</a></li>

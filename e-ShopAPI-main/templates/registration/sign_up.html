@@ -4,7 +4,19 @@
 
 {% load crispy_forms_tags %}
 
+
+
 {% block body %}
+
+{% comment %} {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %} {% endcomment %}
+
+
 
 <form method="post">
     {% csrf_token %}
@@ -13,8 +25,9 @@
     {{ form|crispy}}
     <!-- django default login form end -->
 
-    <p>Have an account? Create one <a href="/login">Here</a></p>
+    <p>Have an account? <a href="/login"><span style='color:red;'>Sign in Here!!</a></span></p>
     <button type="submit" class="btn btn-success">Register</button>
 </form>
+
 
 {% endblock body %}
