@@ -141,8 +141,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR/'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+#authetication global url
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/login'
 
+#crispy form pack
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
