@@ -1,3 +1,4 @@
+import re
 from django.shortcuts import render,redirect
 from .forms import RegisterForm
 from django.contrib.auth import login, logout, authenticate
@@ -25,8 +26,9 @@ def sign_up(request):
         # reqOtp = request.POST['otp']
 
         if(User.objects.filter(email=reqEmail).exists()):
-            messages.success(request, 'opps 😛! Your email already Exits!.')
-            return render(request, 'registration/sign_up.html')
+            messages.warning(request, 'opps 😛! Your email already Exits!.')
+            # return render(request, 'registration/sign_up.html')
+            return redirect (reverse_lazy("App_UserProfile:sign_up"))
         elif(UserProfile.objects.filter(phone=reqPhone).exists()):
             messages.success(request, 'opps 😛! Your phone number already Exits!.')
             return render(request, 'registration/sign_up.html')
