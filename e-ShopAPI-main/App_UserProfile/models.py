@@ -12,7 +12,7 @@ class UserProfile(models.Model):
     # addressline2=models.CharField(max_length=200,blank=True)    
     city=models.CharField(max_length=200,blank=False)
     country=models.CharField(max_length=200,blank=True)
-    otp=models.CharField(max_length=25, unique=True)
+    otp=models.CharField(max_length=25) # , unique=True
     is_varified=models.BooleanField(default=False)
     
     

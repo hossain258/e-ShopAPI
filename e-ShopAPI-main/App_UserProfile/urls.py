@@ -10,4 +10,5 @@ app_name="App_UserProfile"
 urlpatterns = [
     path('sign-up/', views.sign_up, name ='sign_up'),
     # path('logout/', User_logout, name ='User_logout'),
+    path('activate/<uidb64>/<token>', views.activate, name='activate')
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
